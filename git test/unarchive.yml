@@ -1,6 +1,6 @@
 ---
 - name: unarchive
-  hosts: all
+  hosts: group1
   vars:
   - target_dir: '~/target directory'
     
