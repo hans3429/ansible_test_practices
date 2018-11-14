@@ -5,11 +5,14 @@
   - target_dir: '~/target directory'
     
   tasks: 
+  - name: delete dir
+    file:
+      path: '{{target_dir}}'
+      state: absent
   - name: make dir
     file: 
       path: '{{target_dir}}'
       state: directory
-    register: result1
   - name: unarchive
     unarchive:
       src: 'archive.tar'
@@ -18,5 +21,3 @@
   - name: result2
     debug:
       var: result2
-  - name: result1
-    debug: var=result1
