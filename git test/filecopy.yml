@@ -1,0 +1,12 @@
+---
+- name: file transfer to remote
+  hosts: all
+  tasks:
+  - name: copy to node
+    copy:
+      src: /testdir/doc.tar
+      dest: /testdir/
+      owner: root
+      group: root
+      mode: 644
+      remote_src: no

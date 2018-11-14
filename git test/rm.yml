@@ -1,0 +1,11 @@
+---
+- name: rm test
+  hosts: all
+  tasks: 
+  - name: rmdir absent
+    file:
+      path: testdirectory
+      state: absent
+    register: result
+  - name: result
+    debug: var=result

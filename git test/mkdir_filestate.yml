@@ -1,0 +1,9 @@
+---
+- name: make dir
+  hosts: all
+  tasks:
+  - name: file state:directory
+    file: path=./testdirectory state=directory
+    register: result
+  - name: result
+    debug: var=result

@@ -1,0 +1,13 @@
+- name: test sample
+  hosts: testset
+  tasks:
+    - name: ping test
+      ping:
+    - name: where am i c
+      command: pwd
+    - name: where am i s
+      shell: pwd
+    - name: yum test
+      yum:
+
+

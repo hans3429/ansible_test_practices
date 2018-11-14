@@ -1,0 +1,20 @@
+---
+- hosts: all
+  remote_user: ansible1
+  tasks: 
+  - name: new system user
+    user: name="{{add_user_name}}"
+      password="{{upassword|password_hash('sha512')}}"
+#"{{}}"는extra variables 변수 취급?
+      shell=/bin/bash
+    become:yes
+    become_user: root
+  - name : add user to sudoers
+    lineinfile: dest=/etc/sudoers
+      regexp="{{add_user_name}} ALL"
+      line="{{add_user_name}} ALL=(ALL) ALL"
+      state=present
+    become:yes
+    become_user=root
+  - name: Exipiring password for user "{{add_user_name}}"
+    shell:change -d 0 "{{add_user_name}}"

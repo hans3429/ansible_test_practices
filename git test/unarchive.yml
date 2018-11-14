@@ -1,0 +1,22 @@
+---
+- name: unarchive
+  hosts: all
+  vars:
+  - target_dir: '~/target directory'
+    
+  tasks: 
+  - name: make dir
+    file: 
+      path: '{{target_dir}}'
+      state: directory
+    register: result1
+  - name: unarchive
+    unarchive:
+      src: 'archive.tar'
+      dest: '{{target_dir}}'
+    register: result2
+  - name: result2
+    debug:
+      var: result2
+  - name: result1
+    debug: var=result1

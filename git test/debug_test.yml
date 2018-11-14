@@ -1,0 +1,7 @@
+---
+- name: debug test
+  hosts: all
+  tasks:
+   - name: debug testing
+     shell: echo "debug test"
+   - debug: var=ansible_facts

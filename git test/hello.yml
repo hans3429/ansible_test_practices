@@ -1,0 +1,9 @@
+- name: Hello World Sample
+  hosts: all
+  tasks:
+    - name: ping
+      ping:
+    - name: where am i
+      command: pwd
+    - name: who am i
+      command: whoami
